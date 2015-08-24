@@ -7,7 +7,7 @@
     <color name="black">#000000</color>
 
     <color name="greatweather_light_blue">#ff64c2f4</color>
-    <color name="greatweather_blue">#ff1ca8f4</color>
+    <color name="greatweather_blue">#008000</color>
     <color name="greatweather_dark_blue">#0288D1</color>
 
 </resources>
