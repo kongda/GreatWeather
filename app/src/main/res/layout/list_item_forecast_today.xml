@@ -25,6 +25,15 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:id="@+id/list_item_current_tmp_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nCurrent Temperature"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"  />
+
+        <TextView
             android:id="@+id/list_item_high_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

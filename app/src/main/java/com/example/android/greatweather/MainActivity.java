@@ -16,11 +16,15 @@
 package com.example.android.greatweather;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.android.greatweather.sync.GreatWeatherSyncAdapter;
 
@@ -62,12 +66,17 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
         forecastFragment.setUseTodayLayout(!mTwoPane);
 
         GreatWeatherSyncAdapter.initializeSyncAdapter(this);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String cityName = prefs.getString("cityName", "Corvallis");
+        this.setTitle(Utility.getPreferredLocation(getApplicationContext()));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -88,7 +97,23 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
     }
 
     @Override
+    protected void onStart() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String cityName = prefs.getString("cityName", "Corvallis");
+        this.setTitle(cityName);
+        Log.d("dududu", "huhuhu");
+        super.onStart();
+    }
+
+    @Override
     protected void onResume() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String cityName = prefs.getString("cityName", "Corvallis");
+        Log.d("debug1_in_onResume_1", cityName);
+//        this.setTitle(cityName);
+        this.setTitle(Utility.getPreferredLocation(getApplicationContext()));
+        Log.d("lalala", "hahaha");
+
         super.onResume();
         String location = Utility.getPreferredLocation( this );
         // update the location in our second pane using the fragment manager
@@ -103,6 +128,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
             }
             mLocation = location;
         }
+        Log.d("debug1_in_onResume_2", cityName);
     }
 
     @Override

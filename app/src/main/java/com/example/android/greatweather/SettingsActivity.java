@@ -23,6 +23,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings.
@@ -79,7 +80,9 @@ public class SettingsActivity extends PreferenceActivity
         } else {
             // For other preferences, set the summary to the value's simple string representation.
             preference.setSummary(stringValue);
+            Log.d("debug1_PreferenceChange", "change done inside");
         }
+        Log.d("debug1_PreferenceChange", "change done");
         return true;
     }
 

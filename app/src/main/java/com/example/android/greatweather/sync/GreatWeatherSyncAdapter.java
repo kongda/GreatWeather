@@ -53,6 +53,7 @@ public class GreatWeatherSyncAdapter extends AbstractThreadedSyncAdapter {
     private static final long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
     private static final int WEATHER_NOTIFICATION_ID = 3004;
 
+    private static Context mContext;
 
     private static final String[] NOTIFY_WEATHER_PROJECTION = new String[] {
             WeatherContract.WeatherEntry.COLUMN_WEATHER_ID,
@@ -69,6 +70,7 @@ public class GreatWeatherSyncAdapter extends AbstractThreadedSyncAdapter {
 
     public GreatWeatherSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
+        mContext = context;
     }
 
     @Override
@@ -100,14 +102,14 @@ public class GreatWeatherSyncAdapter extends AbstractThreadedSyncAdapter {
             final String DAYS_PARAM = "cnt";
 
             Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
-                    .appendQueryParameter(QUERY_PARAM, locationQuery)
+                    .appendQueryParameter(QUERY_PARAM, locationQuery + ",us")
                     .appendQueryParameter(FORMAT_PARAM, format)
                     .appendQueryParameter(UNITS_PARAM, units)
                     .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
                     .build();
 
             URL url = new URL(builtUri.toString());
-
+            Log.d("url is: ", url.toString());
             // Create the request to OpenWeatherMap, and open the connection
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -207,6 +209,12 @@ public class GreatWeatherSyncAdapter extends AbstractThreadedSyncAdapter {
 
             JSONObject cityJson = forecastJson.getJSONObject(OWM_CITY);
             String cityName = cityJson.getString(OWM_CITY_NAME);
+
+            Log.d("CityName: ", cityName);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
+            editor.putString("cityName", cityName);
+            editor.commit();
+            Log.d("debug1_sync", "there");
 
             JSONObject cityCoord = cityJson.getJSONObject(OWM_COORD);
             double cityLatitude = cityCoord.getDouble(OWM_LATITUDE);
