@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.greatweather;
+package com.djkong.android.greatweather;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,9 +24,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.android.greatweather.sync.GreatWeatherSyncAdapter;
+import com.djkong.android.greatweather.sync.GreatWeatherSyncAdapter;
 
 public class MainActivity extends ActionBarActivity implements ForecastFragment.Callback {
 

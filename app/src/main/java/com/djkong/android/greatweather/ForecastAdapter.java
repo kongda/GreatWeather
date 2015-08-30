@@ -1,4 +1,4 @@
-package com.example.android.greatweather;
+package com.djkong.android.greatweather;
 
 import android.content.Context;
 import android.database.Cursor;

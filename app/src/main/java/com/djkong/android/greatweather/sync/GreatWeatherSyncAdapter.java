@@ -1,4 +1,4 @@
-package com.example.android.greatweather.sync;
+package com.djkong.android.greatweather.sync;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -27,10 +27,10 @@ import android.support.v4.app.TaskStackBuilder;
 import android.text.format.Time;
 import android.util.Log;
 
-import com.example.android.greatweather.MainActivity;
-import com.example.android.greatweather.R;
-import com.example.android.greatweather.Utility;
-import com.example.android.greatweather.data.WeatherContract;
+import com.djkong.android.greatweather.MainActivity;
+import com.djkong.android.greatweather.R;
+import com.djkong.android.greatweather.Utility;
+import com.djkong.android.greatweather.data.WeatherContract;
 
 import org.json.JSONArray;
 import org.json.JSONException;

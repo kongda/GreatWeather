@@ -1,4 +1,4 @@
-package com.example.android.greatweather.sync;
+package com.djkong.android.greatweather.sync;
 
 import android.app.Service;
 import android.content.Intent;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.greatweather.data;
+package com.djkong.android.greatweather.data;
 
 import android.annotation.TargetApi;
 import android.content.ContentProvider;

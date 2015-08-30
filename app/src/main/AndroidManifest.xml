@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.greatweather" >
+    package="com.djkong.android.greatweather" >
 
     <!-- This permission is necessary in order for GreatWeather to perform network access. -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.djkong.android.greatweather.MainActivity"
             android:label="Corvallis, OR" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,30 +28,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name="com.djkong.android.greatweather.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.djkong.android.greatweather.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.greatweather.MainActivity" />
+                android:value="com.djkong.android.greatweather.MainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.djkong.android.greatweather.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.djkong.android.greatweather.MainActivity"
             android:theme="@style/SettingsTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.greatweather.MainActivity" />
+                android:value="com.djkong.android.greatweather.MainActivity" />
         </activity>
         <provider
             android:authorities="@string/content_authority"
-            android:name=".data.WeatherProvider"
+            android:name="com.djkong.android.greatweather.data.WeatherProvider"
             android:exported="false"
             android:syncable="true" />
 
         <!-- SyncAdapter's dummy authentication service -->
-        <service android:name=".sync.GreatWeatherAuthenticatorService">
+        <service android:name="com.djkong.android.greatweather.sync.GreatWeatherAuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -62,7 +62,7 @@
 
         <!-- The SyncAdapter service -->
         <service
-            android:name=".sync.GreatWeatherSyncService"
+            android:name="com.djkong.android.greatweather.sync.GreatWeatherSyncService"
             android:exported="true"
             >
             <intent-filter>

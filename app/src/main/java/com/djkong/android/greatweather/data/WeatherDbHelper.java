@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.greatweather.data;
+package com.djkong.android.greatweather.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.android.greatweather.data.WeatherContract.LocationEntry;
-import com.example.android.greatweather.data.WeatherContract.WeatherEntry;
+import com.djkong.android.greatweather.data.WeatherContract.LocationEntry;
+import com.djkong.android.greatweather.data.WeatherContract.WeatherEntry;
 
 /**
  * Manages a local database for weather data.

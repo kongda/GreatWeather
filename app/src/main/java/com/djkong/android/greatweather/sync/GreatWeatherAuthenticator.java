@@ -1,4 +1,4 @@
-package com.example.android.greatweather.sync;
+package com.djkong.android.greatweather.sync;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
